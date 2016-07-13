@@ -22,7 +22,12 @@ void CRenderSprite::SetRenAndWin(SDL_Renderer* ren, CWindow win)
 	cWindow = win;
 }
 
-void CRenderSprite::RenderSprite(CTexture* cSprite, SDL_Renderer* sRenderer)
+void CRenderSprite::SetSprite(CTexture &sprite)
+{
+	cSprite = sprite;
+}
+
+void CRenderSprite::RenderSprite()
 {
 	//Clear screen
 	SDL_SetRenderDrawColor(sRenderer, maxHex, maxHex, maxHex, maxHex);
@@ -30,13 +35,13 @@ void CRenderSprite::RenderSprite(CTexture* cSprite, SDL_Renderer* sRenderer)
 
 	//Render current frame
 	SDL_Rect* currentClip = &mClips[(++frame / animPerSecond) % animFrames];
-	cSprite->render((cWindow.GetWidth() - currentClip->w) / 2, (cWindow.GetHeight() - currentClip->h) / 2, currentClip, sRenderer);
+	cSprite.render((cWindow.GetWidth() - currentClip->w) / 2, (cWindow.GetHeight() - currentClip->h) / 2, currentClip, sRenderer);
 
 	//Update screen
 	SDL_RenderPresent(sRenderer);
 }
 
-void CRenderSprite::LoadSprite(CTexture cSprite, string path)
+void CRenderSprite::LoadSprite(string path)
 {
 	// Create a texture class and load a sprite onto it
 	cout << "Loading sprite..." << endl;
@@ -46,7 +51,7 @@ void CRenderSprite::LoadSprite(CTexture cSprite, string path)
 
 void CRenderSprite::SpriteClips()
 {
-	for (int i = 0; i < (animFrames - 1); i++)
+	for (int i = 0; i < (animFrames); i++)
 	{
 		int count = 100 * i;
 

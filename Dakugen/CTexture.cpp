@@ -42,7 +42,7 @@ void CTexture::LoadFromFile(std::string path, SDL_Renderer* mRenderer)
 
 	if (loadedSurface == nullptr)
 	{
-		cout << "Unable to load image! SDL_Image error: " << IMG_GetError << endl;
+		cout << "Unable to load image! SDL_Image error: " << IMG_GetError() << endl;
 	}
 	
 	cout << "Image successfully loaded." << endl;

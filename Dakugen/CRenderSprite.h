@@ -13,10 +13,11 @@ public:
 	~CRenderSprite();
 
 	void SetRenAndWin(SDL_Renderer* ren, CWindow win);             // Links the renderer and window created within CWindow to CRenderSprite
-	void LoadSprite(CTexture cSprite, std::string path);           // Loads sprite
+	void SetSprite(CTexture &sprite);                              // Assigns sprite to texture object
+	void LoadSprite(std::string path);                             // Loads sprite
 	void SpriteClips();                                            // Creates clips from sprite
 //	void InitLoop();                                               // Loop that keeps window running until closed
-	void RenderSprite(CTexture* cSprite, SDL_Renderer* sRenderer); // Renders given sprite
+	void RenderSprite();                                           // Renders given sprite
 
 	int animFrames;                                                // Number of frames required for a full animation loop
 	int animPerSecond;                                             // This number will be used to calculate the speed of the animation loop

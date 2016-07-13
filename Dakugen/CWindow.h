@@ -21,7 +21,7 @@ public:
 		                              VSYNC syncState = VSYNC::ON, // View SDL_CreateWindow documentation for info on flags.
 		                                     Uint32 flags = NULL); // <<-- nullptr is incompatible here, so we use NULL.
 
-	SDL_Renderer* GetRenderer();                                   // Returns a pointer to mRenderer, so the renderer can be accessed for 
+	SDL_Renderer* GetRenderer();                                    // Returns a pointer to mRenderer, so the renderer can be accessed for 
 	                                                               // other rendering functions.
                                                                    // Main game loop to run after window has been created. 
 	int GetWidth();                                                // Returns window width

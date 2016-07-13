@@ -89,7 +89,7 @@ void CWindow::CreateRenderWindow(const char* title, int posX, int posY, const in
 		cout << "Warning: Linear texture filtering not enabled.\n";
 	}
 
-	mWindow = SDL_CreateWindow(title, posX, posY, mWindowWidth, mWindowHeight, flags);
+	mWindow = SDL_CreateWindow(title, posX, posY, mWindowWidth, mWindowHeight, SDL_WINDOW_OPENGL);
 	if (mWindow == nullptr)
 	{
 		cout << "Could not create window! SDL Error: " << SDL_GetError() << endl;
