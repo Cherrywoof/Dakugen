@@ -62,21 +62,3 @@ void CRenderSprite::SpriteClips()
 
 	}
 }
-/*
-void CRenderSprite::InitLoop()
-{
-	bool quit = false;
-	while (!quit)
-	{
-		SDL_Event close;
-		while (SDL_PollEvent(&close) != 0)
-		{
-			if (close.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-		}
-		RenderSprite();
-	}
-}
-*/
