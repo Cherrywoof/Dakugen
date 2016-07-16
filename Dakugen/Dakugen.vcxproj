@@ -117,12 +117,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CAudio.cpp" />
     <ClCompile Include="CRenderSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CWindow.cpp" />
+    <ClCompile Include="RenderMiko.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAudio.h" />
     <ClInclude Include="CRenderSprite.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CWindow.h" />

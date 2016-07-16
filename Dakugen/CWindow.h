@@ -6,7 +6,7 @@ enum class VSYNC
 {
 	ON,
 	OFF
-
+	
 };
 
 class CWindow 
@@ -16,12 +16,12 @@ public:
 
 	~CWindow();  				 
 
-	void CreateRenderWindow(const char* title, int posX, int posY, // Creates an SDL window. Refer to SDL_CreateWindow docs for flag definitions.
+	void CreateRenderWindow(const char* title, int posX, int posY, // Creates an SDL window.
 		                  const int &C_WIDTH, const int &C_HEIGHT, // Use SDL_WINDOWPOS_UNDEFINED for default window positioning.
 		                              VSYNC syncState = VSYNC::ON, // View SDL_CreateWindow documentation for info on flags.
 		                                     Uint32 flags = NULL); // <<-- nullptr is incompatible here, so we use NULL.
 
-	SDL_Renderer* GetRenderer();                                    // Returns a pointer to mRenderer, so the renderer can be accessed for 
+	SDL_Renderer* GetRenderer();                                   // Returns a pointer to mRenderer, so the renderer can be accessed for 
 	                                                               // other rendering functions.
                                                                    // Main game loop to run after window has been created. 
 	int GetWidth();                                                // Returns window width

@@ -33,11 +33,13 @@ void CTexture::DeAlloc()
 void CTexture::LoadFromFile(std::string path, SDL_Renderer* mRenderer)
 {
 	// Will automatically delete previous image if new image is called within the same class
-	//DeAlloc();
+	DeAlloc();
 
 	// Final texture
 	SDL_Texture* newTexture = nullptr;
 
+	// From here on we just load the surface and create a texture from it, 
+	// filling our member variables with their appropriate values.
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 
 	if (loadedSurface == nullptr)
@@ -47,7 +49,6 @@ void CTexture::LoadFromFile(std::string path, SDL_Renderer* mRenderer)
 	
 	cout << "Image successfully loaded." << endl;
 
-	//Create new texture from surface pixel
 	newTexture = SDL_CreateTextureFromSurface(mRenderer, loadedSurface);
 	if (newTexture == nullptr)
 	{
@@ -65,19 +66,23 @@ void CTexture::LoadFromFile(std::string path, SDL_Renderer* mRenderer)
 	mTexture = newTexture;
 }
 
-void CTexture::render(int x, int y, SDL_Rect* clip, SDL_Renderer* mRenderer)
+void CTexture::SpriteClips(int frames)
 {
-	//Set rendering space
-	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
-
-	//Set clip rendering dimensions
-	if (clip != nullptr)
+	for (int i = 0; i < (frames); i++)
 	{
-		renderQuad.w = clip->w;
-		renderQuad.h = clip->h;
+		int count = 100 * i;
+
+		mClips[i].x = count;
+		mClips[i].y = 0;
+		mClips[i].w = 100;
+		mClips[i].h = 100;
+
 	}
-	//Render to screen
-	SDL_RenderCopy(mRenderer, mTexture, clip, &renderQuad);
+}
+
+void CTexture::SetClipRect(SDL_Rect* clip)
+{
+	mClips = clip;
 }
 
 int CTexture::GetWidth()
@@ -88,6 +93,11 @@ int CTexture::GetWidth()
 int CTexture::GetHeight()
 {
 	return mHeight;
+}
+
+SDL_Rect* CTexture::GetClip()
+{
+	return mClips;
 }
 
 SDL_Texture* CTexture::GetTexture()

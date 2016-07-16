@@ -18,47 +18,50 @@ CRenderSprite::~CRenderSprite()
 
 void CRenderSprite::SetRenAndWin(SDL_Renderer* ren, CWindow win)
 {
-	sRenderer = ren;
-	cWindow = win;
+	mRenderer = ren;
+	mWindow = win;
 }
 
 void CRenderSprite::SetSprite(CTexture &sprite)
 {
-	cSprite = sprite;
+	// Assign sprite
+	mSprite = sprite;
+
+	//Get dimensions
+	iWidth = mSprite.GetWidth(); // Image dimensions
+	iHeight = mSprite.GetHeight();
+	sWidth = mWindow.GetWidth(); // Window (screen) dimensions
+	sHeight = mWindow.GetHeight();
+}
+
+void CRenderSprite::SetClips(SDL_Rect* clips)
+{
+	mClips = clips;
+}
+
+void CRenderSprite::SetInitCoords(int x, int y)
+{
+	xCoord = x; 
+	yCoord = y;
 }
 
 void CRenderSprite::RenderSprite()
 {
 	//Clear screen
-	SDL_SetRenderDrawColor(sRenderer, maxHex, maxHex, maxHex, maxHex);
-	SDL_RenderClear(sRenderer);
+	SDL_SetRenderDrawColor(mRenderer, maxHex, maxHex, maxHex, maxHex);
+	SDL_RenderClear(mRenderer);
 
-	//Render current frame
+	// Create clip from our clip array
 	SDL_Rect* currentClip = &mClips[(++frame / animPerSecond) % animFrames];
-	cSprite.render((cWindow.GetWidth() - currentClip->w) / 2, (cWindow.GetHeight() - currentClip->h) / 2, currentClip, sRenderer);
+
+	//Set rendering space and clip rendering dimensions
+	SDL_Rect renderQuad = { xCoord, yCoord, iWidth, iHeight };
+	renderQuad.w = currentClip->w;
+	renderQuad.h = currentClip->h;
+
+	//Render to screen
+	SDL_RenderCopy(mRenderer, mSprite.GetTexture(), currentClip, &renderQuad);
 
 	//Update screen
-	SDL_RenderPresent(sRenderer);
-}
-
-void CRenderSprite::LoadSprite(string path)
-{
-	// Create a texture class and load a sprite onto it
-	cout << "Loading sprite..." << endl;
-	cSprite.LoadFromFile(path.c_str(), sRenderer);
-	cout << "Successfully loaded sprite." << endl;
-}
-
-void CRenderSprite::SpriteClips()
-{
-	for (int i = 0; i < (animFrames); i++)
-	{
-		int count = 100 * i;
-
-		mClips[i].x = count;
-		mClips[i].y = 0;
-		mClips[i].w = 100;
-		mClips[i].h = 100;
-
-	}
+	SDL_RenderPresent(mRenderer);
 }
