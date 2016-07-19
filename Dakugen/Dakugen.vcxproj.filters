@@ -1,51 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
+    <Filter Include="Main">
+      <UniqueIdentifier>{fab55575-1818-405f-9bf8-345cea840a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Main source">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="Main\Main Headers">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Execution">
+      <UniqueIdentifier>{3327ec81-dbb6-426e-8b8a-9be293ce5419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Execution Scripts">
+      <UniqueIdentifier>{0c142f74-6fb2-46a0-9bb0-b82917b3500d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Bosses">
+      <UniqueIdentifier>{aa4bd106-1343-4e0c-94ad-83e2469bc410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Execution Scripts\Source">
+      <UniqueIdentifier>{fd9e7a91-b996-4725-bcf5-75a5610c8335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Execution Scripts\Header">
+      <UniqueIdentifier>{4bceec21-e905-4df6-a9d3-38bd2f2256e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Bosses\Source">
+      <UniqueIdentifier>{24202ba9-56df-4116-8ba2-563c3762cbca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Execution\Bosses\Header">
+      <UniqueIdentifier>{1782d47d-9282-4169-abfe-2377699c3ea3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Main\Main source</Filter>
     </ClCompile>
     <ClCompile Include="CTexture.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Main\Main source</Filter>
     </ClCompile>
     <ClCompile Include="CWindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Main\Main source</Filter>
     </ClCompile>
     <ClCompile Include="CRenderSprite.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Main\Main source</Filter>
     </ClCompile>
     <ClCompile Include="CAudio.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Main\Main source</Filter>
     </ClCompile>
-    <ClCompile Include="RenderMiko.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MainScript.cpp">
+      <Filter>Execution\Execution Scripts\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Miko.cpp">
+      <Filter>Execution\Bosses\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoss.cpp">
+      <Filter>Main\Main source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CTexture.h">
-      <Filter>Header Files</Filter>
+      <Filter>Main\Main Headers</Filter>
     </ClInclude>
     <ClInclude Include="CWindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>Main\Main Headers</Filter>
     </ClInclude>
     <ClInclude Include="CRenderSprite.h">
-      <Filter>Header Files</Filter>
+      <Filter>Main\Main Headers</Filter>
     </ClInclude>
     <ClInclude Include="CAudio.h">
-      <Filter>Header Files</Filter>
+      <Filter>Main\Main Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnim.h">
+      <Filter>Main\Main Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScript.h">
+      <Filter>Execution\Execution Scripts\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Miko.h">
+      <Filter>Execution\Bosses\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoss.h">
+      <Filter>Main\Main Headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

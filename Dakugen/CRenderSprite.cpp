@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string.h>
-#include <vector>
-#include <SDL.h>
-#include "CWindow.h"
-#include "CTexture.h"
 #include "CRenderSprite.h"
 
 using namespace std;

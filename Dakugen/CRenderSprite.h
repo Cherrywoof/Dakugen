@@ -1,8 +1,5 @@
 #pragma once
 
-#include <SDL.h>
-#include <string>
-#include <vector>
 #include "CWindow.h"
 #include "CTexture.h"
 

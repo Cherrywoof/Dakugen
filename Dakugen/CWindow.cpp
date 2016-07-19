@@ -2,10 +2,7 @@
  * set texture filtering, and enable or disable vsync. On exiting, will destroy all      *
  * allocated memory.															         */
 
-#include <iostream>
-#include <string>
-#include <SDL.h>
-#include <SDL_image.h>
+
 #include "CWindow.h"
 
 

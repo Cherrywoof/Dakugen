@@ -2,10 +2,6 @@
  * load an image from the specified path, get the image's dimensions, deallocate textures  *
  * when not needed anymore, and render the textures at any given point within the window.  */
 
-#include <iostream>
-#include <string>
-#include <SDL.h>
-#include <SDL_image.h>
 #include "CTexture.h"
 
 using namespace std;
@@ -66,16 +62,30 @@ void CTexture::LoadFromFile(std::string path, SDL_Renderer* mRenderer)
 	mTexture = newTexture;
 }
 
-void CTexture::SpriteClips(int frames)
+void CTexture::cStaticClip(int yCoord, int width, int height, int frames)
 {
 	for (int i = 0; i < (frames); i++)
 	{
-		int count = 100 * i;
+		                    // Only x needs to be multiplied since 
+							// we're only doing animations horizontally
+		mClips[i].x = width * i;
+		mClips[i].y = yCoord;
+		mClips[i].w = width;
+		mClips[i].h = height;
 
-		mClips[i].x = count;
-		mClips[i].y = 0;
-		mClips[i].w = 100;
-		mClips[i].h = 100;
+	}
+}
+
+void CTexture::cDynamicClip(int xCoord, int yCoord, int width, int height, int frames)
+{
+	for (int i = 1; i < (frames); i++)
+	{
+		// Only x needs to be multiplied since 
+		// we're only doing animations horizontally
+		mClips[i - 1].x = (xCoord - width) + (width * i);
+		mClips[i - 1].y = yCoord;
+		mClips[i - 1].w = width;
+		mClips[i - 1].h = height;
 
 	}
 }

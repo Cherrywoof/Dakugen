@@ -118,17 +118,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CAudio.cpp" />
+    <ClCompile Include="CBoss.cpp" />
     <ClCompile Include="CRenderSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CWindow.cpp" />
-    <ClCompile Include="RenderMiko.cpp" />
+    <ClCompile Include="MainScript.cpp" />
+    <ClCompile Include="Miko.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CAnim.h" />
     <ClInclude Include="CAudio.h" />
+    <ClInclude Include="CBoss.h" />
     <ClInclude Include="CRenderSprite.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CWindow.h" />
+    <ClInclude Include="MainScript.h" />
+    <ClInclude Include="Miko.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
