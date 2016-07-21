@@ -1,13 +1,9 @@
 #pragma once
 
 /* Class for creating windows using SDL. Will initialize SDL, a window and the renderer, *
-* set texture filtering, and enable or disable vsync. On exiting, will destroy all      *
-* allocated memory.															         */
+ * set texture filtering, and enable or disable vsync. On exiting, will destroy all      *
+ * allocated memory.															         */
 
-#include <iostream>
-#include <string>
-#include <SDL.h>
-#include <SDL_image.h>
 
 enum class VSYNC
 {

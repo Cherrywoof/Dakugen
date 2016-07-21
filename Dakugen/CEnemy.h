@@ -1,7 +1,5 @@
 #pragma once
 
-#include "CWindow.h"
-
 class CEnemy
 {
 public:

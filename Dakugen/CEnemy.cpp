@@ -2,6 +2,11 @@
  * load an image from the specified path, get the image's dimensions, deallocate textures  *
  * when not needed anymore, and render the textures at any given point within the window.  */
 
+#include <iostream>
+#include <string>
+#include <SDL.h>
+#include <SDL_image.h>
+#include "CWindow.h"
 #include "CEnemy.h"
 
 CEnemy::CEnemy() : m_maxHex(0xFF)

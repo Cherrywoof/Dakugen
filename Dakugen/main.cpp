@@ -1,4 +1,8 @@
-#include "CWindow.h" // This is just here for clarity as CEnemy already loads CWindow, but thanks to header guards it won't scramble our code
+#include <iostream>
+#include <string>
+#include <SDL.h>
+#include <SDL_image.h>
+#include "CWindow.h" 
 #include "CEnemy.h"
 
 int main(int argc, char* args[])
