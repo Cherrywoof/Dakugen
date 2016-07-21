@@ -213,3 +213,18 @@ ModelManifest.xml
 
 *.VC.opendb
 *.VC.db
+
+# autotools-generated files
+aclocal.m4
+autom4te.cache/
+configure
+config.status
+dakugen
+depcomp
+install-sh
+Makefile.in
+Makefile
+missing
+*.o
+.deps/
+.dirstamp
