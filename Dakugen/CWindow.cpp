@@ -69,11 +69,6 @@ void CWindow::InitRenderer(VSYNC syncState)
 
 }
 
-SDL_Renderer* CWindow::GetRenderer()
-{
-	return mRenderer;
-}
-
 void CWindow::CreateRenderWindow(const char* title, int posX, int posY, const int &C_WIDTH, const int &C_HEIGHT, VSYNC syncState, Uint32 flags)
 {
 	InitSDL();
@@ -95,6 +90,11 @@ void CWindow::CreateRenderWindow(const char* title, int posX, int posY, const in
 	InitRenderer(syncState);
 
 	cout << "Render window successfully created.\n";
+}
+
+SDL_Renderer* CWindow::GetRenderer()
+{
+	return mRenderer;
 }
 
 int CWindow::GetWidth()
