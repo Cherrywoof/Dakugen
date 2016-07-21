@@ -1,12 +1,4 @@
-/* Class for creating windows using SDL. Will initialize SDL, a window and the renderer, *
- * set texture filtering, and enable or disable vsync. On exiting, will destroy all      *
- * allocated memory.															         */
-
-
 #include "CWindow.h"
-
-
-using namespace std;
 
 CWindow::CWindow() : mWindowWidth(640), mWindowHeight(480)
 {
@@ -35,14 +27,14 @@ void CWindow::InitSDL()
 	{
 		if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		{
-			cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << endl;
+			std::cout << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
 		}
 
-		cout << "Initialized SDL.\n";
+		std::cout << "Initialized SDL." << std::endl;
 		mInitCheck = true;
 	}
 
-	else { cout << "SDL has already been initalized!\n"; }
+	else { std::cout << "SDL has already been initalized!" << std::endl; }
 
 }
 
@@ -50,13 +42,13 @@ void CWindow::InitRenderer(VSYNC syncState)
 {
 	int hex_Max = 0xFF;
 
-	cout << "VSync is " << (syncState == VSYNC::ON ? "on." : "off.") << endl;
+	std::cout << "VSync is " << (syncState == VSYNC::ON ? "on." : "off.") << std::endl;
 
 	//GPU accelerated renderer with option vSync enabled
 	mRenderer = SDL_CreateRenderer(mWindow, -1, syncState == VSYNC::ON ? SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC : SDL_RENDERER_ACCELERATED);
 	if (mRenderer == nullptr)
 	{
-		cout << "Could not initialize renderer! SDL Error: " << SDL_GetError() << endl;
+		std::cout << "Could not initialize renderer! SDL Error: " << SDL_GetError() << std::endl;
 	}
 	// Maxes out the settings for a white opaque bg
 	SDL_SetRenderDrawColor(mRenderer, hex_Max, hex_Max, hex_Max, hex_Max); 
@@ -64,7 +56,7 @@ void CWindow::InitRenderer(VSYNC syncState)
 	int imgFlags = IMG_INIT_PNG;
 	if (!IMG_Init(imgFlags) &imgFlags)
 	{
-		cout << "Could not initialize PNG loader! SDL_Image Error: " << IMG_GetError() << endl;
+		std::cout << "Could not initialize PNG loader! SDL_Image Error: " << IMG_GetError() << std::endl;
 	}
 
 }
@@ -78,18 +70,18 @@ void CWindow::CreateRenderWindow(const char* title, int posX, int posY, const in
 	//Set texture filtering to linear
 	if (!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))
 	{
-		cout << "Warning: Linear texture filtering not enabled.\n";
+		std::cout << "Warning: Linear texture filtering not enabled." << std::endl;
 	}
 
 	mWindow = SDL_CreateWindow(title, posX, posY, mWindowWidth, mWindowHeight, SDL_WINDOW_OPENGL);
 	if (mWindow == nullptr)
 	{
-		cout << "Could not create window! SDL Error: " << SDL_GetError() << endl;
+		std::cout << "Could not create window! SDL Error: " << SDL_GetError() << std::endl;
 	}
 
 	InitRenderer(syncState);
 
-	cout << "Render window successfully created.\n";
+	std::cout << "Render window successfully created." << std::endl;
 }
 
 SDL_Renderer* CWindow::GetRenderer()
