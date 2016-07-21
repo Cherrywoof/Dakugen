@@ -20,18 +20,12 @@
     <ClCompile Include="CWindow.cpp">
       <Filter>Main\Main source</Filter>
     </ClCompile>
-    <ClCompile Include="CAudio.cpp">
-      <Filter>Main\Main source</Filter>
-    </ClCompile>
     <ClCompile Include="CEnemy.cpp">
       <Filter>Main\Main source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CWindow.h">
-      <Filter>Main\Main Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="CAudio.h">
       <Filter>Main\Main Headers</Filter>
     </ClInclude>
     <ClInclude Include="CEnemy.h">

@@ -117,13 +117,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CAudio.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CAudio.h" />
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CWindow.h" />
   </ItemGroup>
