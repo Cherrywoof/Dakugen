@@ -82,31 +82,21 @@ void CEnemy::LoadFromFile(std::string path)
 
 void CEnemy::CreateClip()
 {
+	bool xnZero = false;
 
-	if (m_xCoord == 0)
-	{
+	if (m_xCoord == 0) xnZero = true;
+		
 		for (int i = 0; i < m_animFrames; i++)
 		{
-			// Only x needs to be multiplied since 
-			// we're only doing animations horizontally
-			mClips[i].x = m_cWidth * i;
+			// Spritesheets animate horizontally so we only multiply x
+			// Nonzero starting coordinates for x require a different clipping method
+			// Hence the ternary if
+			mClips[i].x = (xnZero ? (m_cWidth * i) : ((m_xCoord - m_cWidth) + (m_xCoord * i)));
 			mClips[i].y = m_yCoord;
 			mClips[i].w = m_cWidth;
 			mClips[i].h = m_cHeight;
 
 		}
-	}
-	else
-	{
-		for (int i = 1; i < (m_animFrames + 1); i++)
-		{
-			mClips[i - 1].x = (m_xCoord - m_cWidth) + (m_xCoord * i);
-			mClips[i - 1].y = m_yCoord;
-			mClips[i - 1].w = m_cWidth;
-			mClips[i - 1].h = m_cHeight;
-
-		}
-	}
 }
 
 void CEnemy::RenderSprite(int xCoord, int yCoord)
