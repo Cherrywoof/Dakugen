@@ -91,7 +91,10 @@ void CEnemy::CreateClip()
 			// Spritesheets animate horizontally so we only multiply x
 			// Nonzero starting coordinates for x require a different clipping method
 			// Hence the ternary if
-			mClips[i].x = (xnZero ? (m_cWidth * i) : ((m_xCoord - m_cWidth) + (m_xCoord * i)));
+
+			mClips[i].x = (xnZero ? 
+				          (m_cWidth * i) 
+				        : ((m_xCoord - m_cWidth) + (m_xCoord * i)));
 			mClips[i].y = m_yCoord;
 			mClips[i].w = m_cWidth;
 			mClips[i].h = m_cHeight;
